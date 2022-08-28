@@ -23,7 +23,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Create User",
 			"request": {
 				"method": "POST",
 				"header": [],
