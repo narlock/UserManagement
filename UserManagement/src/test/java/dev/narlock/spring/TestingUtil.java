@@ -22,4 +22,8 @@ public class TestingUtil {
 		list.add(makeTestUser(3, "Anthony", "Test", "anthony@narlock.dev"));
 		return list;
 	}
+
+	public static User testUserObject() {
+		return makeTestUser(1, "Anthony", "Test", "anthony@narlock.dev");
+	}
 }

@@ -1,6 +1,7 @@
 package dev.narlock.spring.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,10 @@ public class UserServiceImpl implements UserService {
 	public User getUserById(long id) {
 		Optional<User> optional = userRepository.findById(id);
 		User user = null;
-		if(optional.isPresent()) {
+		try {
 			user = optional.get();
-		} else {
-			throw new RuntimeException("User was not present in getEmployeeById for id " + id);
+		} catch(NoSuchElementException e) {
+			throw new RuntimeException("Invalid userId for getUserById: " + id);
 		}
 		return user;
 	}
