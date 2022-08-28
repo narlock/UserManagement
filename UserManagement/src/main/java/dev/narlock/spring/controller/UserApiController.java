@@ -3,6 +3,7 @@ package dev.narlock.spring.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,6 +58,12 @@ public class UserApiController {
 		
 		//Saves the user
 		userService.saveUser(user);
+	}
+	
+	//Deletes the user by their id
+	@DeleteMapping("/users/{id}")
+	public void deleteUserById(@PathVariable long id) {
+		userService.deleteUserById(id);
 	}
 	
 }

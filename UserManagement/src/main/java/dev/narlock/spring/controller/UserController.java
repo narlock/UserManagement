@@ -50,4 +50,11 @@ public class UserController {
 		return "update_user";
 	}
 	
+	
+	// Delete User
+	@GetMapping("/deleteUser/{id}")
+	public String deleteUser(@PathVariable(value="id") long id, Model model) {
+		this.userService.deleteUserById(id);
+		return "redirect:/";
+	}
 }
