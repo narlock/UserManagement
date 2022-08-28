@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import dev.narlock.spring.domain.User;
 import dev.narlock.spring.service.UserService;
@@ -23,5 +25,20 @@ public class UserController {
 		return "index";
 	}
 	
+	
+	// Form to create Users
+	@GetMapping("/createUserForm")
+	public String createUserForm(Model model) {
+		// Create domain attribute to bind form data
+		User user = new User();
+		model.addAttribute("user", user);
+		return "new_user";
+	}
+	
+	@PostMapping("/saveUser")
+	public String saveUser(@ModelAttribute("user") User user) {
+		userService.saveUser(user);
+		return "redirect:/";
+	}
 	
 }
