@@ -1,5 +1,5 @@
 # User Management Application
-Anthony Narlock
+Created by narlock
 
 ## High-level Overview
 - User Management application utilizing Spring Boot and MySQL providing ability to CREATE, VIEW, UPDATE, and DELETE users.
